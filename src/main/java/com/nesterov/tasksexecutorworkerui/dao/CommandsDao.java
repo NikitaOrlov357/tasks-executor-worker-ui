@@ -11,14 +11,13 @@ import javax.sql.DataSource;
 @Repository
 public class CommandsDao {
     private final DataSource hikariDataSource;
-    public CommandData commandData;
 
     public CommandsDao(DataSource hikariDataSource) {
         this.hikariDataSource = hikariDataSource;
     }
 
     public void addCommand(CommandData commandData){
-        String sql = " INSERT INTO commands (command, type, regularity, start, owner ) VALUE (?, ?, ?, ?, ?, ?)";
+        String sql = " INSERT INTO commands (command, type, regularity, start, owner ) VALUES (?, ?, ?, ?, ?)";
         log.debug("sql = {} ", sql);
         getJdbcTemplate().update(
                 sql,
@@ -30,7 +29,7 @@ public class CommandsDao {
         );
     }
 
-    public void deleteCommand(long id){
+    public void deleteCommand(CommandData commandData){
         String sql = "DELETE FROM commands WHERE (id) = ?";
         log.debug("sql = {} ", sql);
         getJdbcTemplate().update(
@@ -39,11 +38,16 @@ public class CommandsDao {
         );
     }
 
-    public void updateCommand(CommandData commandData){
-        String sql = "UPDATE commands SET  WHERE (id) = ?";
+    public void editCommand(CommandData commandData){
+        String sql = "UPDATE commands SET command = ?, type = ?, regularity = ?, start = ?, owner = ? WHERE id = ?";
         log.debug("sql = {} ", sql);
         getJdbcTemplate().update(
                 sql,
+                commandData.getCommand(),
+                commandData.getType(),
+                commandData.getRegularity(),
+                commandData.getStart(),
+                commandData.getOwner(),
                 commandData.getId()
         );
     }
