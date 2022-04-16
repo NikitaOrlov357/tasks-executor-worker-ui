@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>добавление</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/materialize.css}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<table class="highlight" align="center" >
+    <form th:action="@{/command/add}" th:method="post" th:object="${commandData}">
+        <tr>
+            <th>
+                параметр
+            </th>
+            <th>
+                значение
+            </th>
+        </tr>
+        <tr>
+            <td>
+                команда
+            </td>
+            <td>
+                <input type="text" th:field="*{command}" >
+            </td>
+        </tr>
+        <tr>
+            <td>
+                тип
+            </td>
+            <td>
+                <input type="text" th:field="*{type}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                регулярность
+            </td>
+            <td>
+                <input type="text" th:field="*{regularity}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                старт
+            </td>
+            <td>
+                <input type="datetime-local" th:field="*{start}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <button class="btn waves-effect waves-light" type="submit" name="action">добавить
+                    <i class="material-icons right">weekend</i>
+                </button>
+            </td>
+        </tr>
+    </form>
+</table>
+</body>
+</html>

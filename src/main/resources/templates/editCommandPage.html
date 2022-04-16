@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>редактировать</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/materialize.css}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<table class="highlight" align="center" >
+    <form th:action="@{/command/edit}" th:method="post" th:object="${commandData}">
+        <tr>
+            <th>
+                параметр
+            </th>
+            <th>
+                значение
+            </th>
+        </tr>
+        <tr>
+            <td>
+                команда
+            </td>
+            <td>
+                <input type="text" th:field="*{command}" >
+            </td>
+        </tr>
+        <tr>
+            <td>
+                тип
+            </td>
+            <td>
+                <input type="text" th:field="*{type}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                регулярность
+            </td>
+            <td>
+                <input type="text" th:field="*{regularity}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                старт
+            </td>
+            <td>
+                <input type="text" th:field="*{start}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                время
+            </td>
+            <td>
+                <input type="text" th:field="*{time}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ID
+            </td>
+            <td>
+                <input type="text" th:field="*{id}" >
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <button class="btn waves-effect waves-light" type="submit" name="action">редактировать
+                    <i class="material-icons right">edit</i>
+                </button>
+            </td>
+        </tr>
+    </form>
+</table>
+</body>
+</html>

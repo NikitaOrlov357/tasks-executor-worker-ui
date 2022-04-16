@@ -2,6 +2,8 @@ package com.nesterov.tasksexecutorworkerui.dto;
 
 import lombok.Data;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Data
@@ -9,8 +11,8 @@ public class CommandData {
     Long id;
     String command;
     String type;
-    long regularity;
-    long start;
+    Long regularity;
+    Long start;
     String owner;
     Date time;
 
@@ -27,7 +29,12 @@ public class CommandData {
                 '}';
     }
 
-
+    public void setStart(String start1 ) throws ParseException {
+        start1 = start1.replace('T', ' ');
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        this.start = simpleDateFormat.parse(start1).getTime()/1000;
+        System.out.println();
+    }
 
 }
 

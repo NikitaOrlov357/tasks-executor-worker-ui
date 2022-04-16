@@ -3,20 +3,21 @@ package com.nesterov.tasksexecutorworkerui.controller;
 import com.nesterov.tasksexecutorworkerui.dao.CommandsDao;
 import com.nesterov.tasksexecutorworkerui.dto.CommandData;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
-@RestController
+@Controller
 @RequestMapping("/command")
-public class EditCommandController {
-    CommandsDao commandsDao;
+public class CommandsController {
+    private final CommandsDao commandsDao;
 
-    public EditCommandController(CommandsDao commandsDao){
+    public CommandsController(CommandsDao commandsDao){
         this.commandsDao = commandsDao;
     }
 
-    @PostMapping(value = "/add", consumes = "application/json")
-    public void addCommand(@RequestBody CommandData commandData){
+    @PostMapping(value = "/add")
+    public void addCommand(@ModelAttribute CommandData commandData){
         commandsDao.addCommand(commandData);
         log.info(commandData.toString());
     }

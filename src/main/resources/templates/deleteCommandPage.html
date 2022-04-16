@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>удаление</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/materialize.css}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<table class="highlight" align="center" >
+    <form th:action="@{/command/delete}" th:method="post" th:object="${commandData}">
+        <tr>
+            <th>
+                параметр
+            </th>
+            <th>
+                значение
+            </th>
+        </tr>
+        <tr>
+            <td>
+                ID
+            </td>
+            <td>
+                <input type="text" th:field="*{id}" >
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <button class="btn waves-effect waves-light" type="submit" name="action">удалить
+                    <i class="material-icons right">delete</i>
+                </button>
+            </td>
+        </tr>
+    </form>
+</table>
+</body>
+</html>
