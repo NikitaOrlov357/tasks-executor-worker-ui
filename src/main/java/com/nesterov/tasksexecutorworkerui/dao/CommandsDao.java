@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -55,9 +56,13 @@ public class CommandsDao {
     }
 
     public List<CommandType> getAllTypes(){
-        String sql = "SELECT * FROM commands_type ";
-        log.debug("sql = {} ", sql);
-        return getJdbcTemplate().queryForList(sql, CommandType.class);
+//        String sql = "SELECT * FROM commands_type ";
+//        log.debug("sql = {} ", sql);
+//        return getJdbcTemplate().queryForList(sql, CommandType.class);
+        List<CommandType> a = new ArrayList();
+        a.add(new CommandType(12L,"lolik"));
+        a.add(new CommandType(24L,"tolik"));
+        return a;
     }
 
 

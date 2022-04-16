@@ -2,6 +2,7 @@ package com.nesterov.tasksexecutorworkerui.controller;
 
 import com.nesterov.tasksexecutorworkerui.dao.CommandsDao;
 import com.nesterov.tasksexecutorworkerui.dto.CommandData;
+import com.nesterov.tasksexecutorworkerui.dto.CommandType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +16,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/ui/command")
 public class UiController {
+    CommandsDao commandsDao;
+
+    public UiController (CommandsDao commandsDao){
+        this.commandsDao = commandsDao;
+    }
 
     @GetMapping(value = "/add")
     public String showAddingCommandPage(Model model) {
         model.addAttribute("commandData", new CommandData());
+        model.addAttribute("commandsType", commandsDao.getAllTypes());
         return "addingCommandPage";
     }
 
