@@ -23,7 +23,7 @@ public class CommandData {
                 ", command='" + command + '\'' +
                 ", type='" + type + '\'' +
                 ", regularity=" + regularity +
-                ", start=" + start + "(" + new Date(start * 1000) + ")" +
+                ", start=" + start + "(" + new Date(start) + ")" +
                 ", owner='" + owner + '\'' +
                 ", time=" + time +
                 '}';
@@ -32,7 +32,7 @@ public class CommandData {
     public void setStart(String start1 ) throws ParseException {
         start1 = start1.replace('T', ' ');
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        this.start = simpleDateFormat.parse(start1).getTime()/1000;
+        this.start = simpleDateFormat.parse(start1).getTime();
         System.out.println();
     }
 
