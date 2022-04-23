@@ -2,11 +2,9 @@ package com.nesterov.tasksexecutorworkerui.controller;
 
 import com.nesterov.tasksexecutorworkerui.dao.CommandsDao;
 import com.nesterov.tasksexecutorworkerui.dto.CommandData;
-import com.nesterov.tasksexecutorworkerui.dto.CommandType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.RequestMapping;
