@@ -44,7 +44,9 @@
                 регулярность
             </td>
             <td>
-                <input type="text" th:field="*{regularity}">
+                <form action="action_form.php" method="POST">
+                    <input type="number" th:step="${regularity}" min=0 onkeypress="return false"/>
+                </form>
             </td>
         </tr>
         <tr>
