@@ -34,7 +34,7 @@
                 <div class="input-field col s12">
                     <select>
                         <option value="" disabled selected>Choose your option</option>
-                        <option th:value="${type.getId()}" th:each="type : ${commandsType}">[[${type.getType()}]]</option>
+                        <option  th:field="*{type}" th:value="${type.getId()}" th:each="type : ${commandsType}">[[${type.getType()}]]</option>
                     </select>
                 </div>
             </td>
@@ -44,9 +44,7 @@
                 регулярность
             </td>
             <td>
-                <form action="action_form.php" method="POST">
-                    <input type="number" th:step="${regularity}" min=0 onkeypress="return false"/>
-                </form>
+                <input type="number" th:step="${regularity}" min=0 onkeypress="return false"/>
             </td>
         </tr>
         <tr>
